@@ -1,0 +1,164 @@
+# --------------------------------------------------
+
+# Node.js / NestJS
+
+# --------------------------------------------------
+
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Build output
+
+dist/
+build/
+tmp/
+temp/
+
+# Logs
+
+logs
+*.log
+debug.log*
+error.log*
+
+# Coverage
+
+coverage/
+
+# Environment variables
+
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS files
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editors
+
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# --------------------------------------------------
+
+# Database
+
+# --------------------------------------------------
+
+# PostgreSQL dumps
+
+*.sql
+
+# SQLite database (mobile local storage)
+
+*.sqlite
+*.sqlite3
+*.db
+
+# Database migrations build
+
+dist/migrations
+
+# --------------------------------------------------
+
+# NestJS specific
+
+# --------------------------------------------------
+
+# Compiled JavaScript
+
+*.js
+*.js.map
+
+# TypeScript cache
+
+*.tsbuildinfo
+
+# --------------------------------------------------
+
+# Flutter / Dart (if same repo)
+
+# --------------------------------------------------
+
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+
+# Flutter generated files
+
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+
+# Flutter IDE files
+
+android/.gradle/
+android/app/build/
+ios/Pods/
+ios/Runner.xcworkspace/
+
+# --------------------------------------------------
+
+# Testing
+
+# --------------------------------------------------
+
+coverage/
+.nyc_output/
+
+# --------------------------------------------------
+
+# Misc
+
+# --------------------------------------------------
+
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+
+# Secrets / Keys
+
+*.pem
+*.key
+*.crt
+
+# Local storage files
+
+local_storage/
+cache/
+
+# --------------------------------------------------
+
+# Docker (optional)
+
+# --------------------------------------------------
+
+docker-compose.override.yml
+*.dockerfile
+
+# --------------------------------------------------
+
+# Logs & Reports
+
+# --------------------------------------------------
+
+report/
+reports/
+analysis/
