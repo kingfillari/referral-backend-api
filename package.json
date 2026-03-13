@@ -1,0 +1,54 @@
+{
+  "name": "referral_backend_api",
+  "version": "1.0.0",
+  "description": "Backend API for the Referral Management System (RMS) built with NestJS, TypeScript, and PostgreSQL.",
+  "main": "src/main.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "ts-node src/main.ts",
+    "dev": "ts-node-dev src/main.ts",
+    "build": "tsc",
+    "start:prod": "node dist/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingfillari/referral-backend-api.git"
+  },
+  "keywords": [
+    "nestjs",
+    "typescript",
+    "postgresql",
+    "flutter",
+    "api",
+    "rms",
+    "referral-management"
+  ],
+  "author": "Kingfillari Forever",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kingfillari/referral-backend-api/issues"
+  },
+  "homepage": "https://github.com/kingfillari/referral-backend-api#readme",
+  "dependencies": {
+    "@nestjs/common": "^11.1.16",
+    "@nestjs/config": "^4.0.3",
+    "@nestjs/core": "^11.1.16",
+    "@nestjs/platform-express": "^11.1.16",
+    "@nestjs/typeorm": "^11.0.0",
+    "pg": "^8.20.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "typeorm": "^0.3.28"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/node": "^25.5.0",
+    "@types/passport-jwt": "^4.0.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}
