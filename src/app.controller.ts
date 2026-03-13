@@ -6,11 +6,16 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  healthCheck(): any {
+  getRoot(): any {
     return {
+      message: this.appService.getHello(),
       status: 'OK',
-      message: 'Referral Backend API is running',
       timestamp: new Date(),
     };
+  }
+
+  @Get('health')
+  healthCheck(): any {
+    return this.appService.healthStatus();
   }
 }
