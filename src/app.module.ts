@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, Logger } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
 import { AuthModule } from './auth/auth.module';
@@ -15,7 +15,10 @@ import { AppService } from './app.service';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: `.env.${process.env.NODE_ENV || 'development'}`,
+    }),
     DatabaseModule,
     AuthModule,
     UsersModule,
@@ -28,6 +31,6 @@ import { AppService } from './app.service';
     SyncModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, Logger],
 })
 export class AppModule {}
