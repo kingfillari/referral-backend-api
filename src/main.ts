@@ -10,7 +10,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   // Security middlewares
-  app.use(helmet()); // Adds HTTP headers for security
+  app.use(helmet.default()); // Adds HTTP headers for security
   app.use(cors({ origin: '*' })); // Allow all origins for now, can restrict in production
 
   // Global validation pipe
