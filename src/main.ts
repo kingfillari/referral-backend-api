@@ -3,22 +3,21 @@ import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
 import { ValidationPipe } from '@nestjs/common';
-import * as helmet from 'helmet';
-import * as cors from 'cors';
+import helmet from 'helmet'; // updated import
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   // Security middlewares
-  app.use(helmet.default()); // Adds HTTP headers for security
-  app.use(cors({ origin: '*' })); // Allow all origins for now, can restrict in production
+  app.use(helmet()); // now works
+  app.enableCors({ origin: '*' }); // fixed cors
 
   // Global validation pipe
   app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true, // Strip properties not in DTOs
-      forbidNonWhitelisted: true, // Throw error if extra properties found
-      transform: true, // Transform payloads to DTO instances
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
       transformOptions: { enableImplicitConversion: true },
     }),
   );
@@ -27,7 +26,6 @@ async function bootstrap() {
   app.useGlobalFilters(new HttpExceptionFilter());
   app.useGlobalInterceptors(new LoggingInterceptor());
 
-  // Custom logging
   console.log('----------------------------------------');
   console.log('🚀 Starting Referral Management Backend API');
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
