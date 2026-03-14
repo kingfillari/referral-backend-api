@@ -8,7 +8,6 @@ import {
 
 @Entity('users')
 export class User {
-
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -25,52 +24,53 @@ export class User {
   role: string;
 
   @Column({ nullable: true })
-  phone: string;
+  phone?: string;
 
   @Column({ nullable: true })
-  hospitalId: number;
+  hospitalId?: number;
 
   @Column({ nullable: true })
-  department: string;
+  department?: string;
 
   @Column({ default: true })
   isActive: boolean;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
 
-  getFullInfo() {
+  // --- Methods ---
+  getFullInfo(): string {
     return `${this.fullName} (${this.email})`;
   }
 
-  isAdmin() {
+  isAdmin(): boolean {
     return this.role === 'ADMIN';
   }
 
-  isDoctor() {
+  isDoctor(): boolean {
     return this.role === 'DOCTOR';
   }
 
-  isNurse() {
+  isNurse(): boolean {
     return this.role === 'NURSE';
   }
 
-  isHospital() {
+  isHospital(): boolean {
     return this.role === 'HOSPITAL';
   }
 
-  deactivate() {
+  deactivate(): void {
     this.isActive = false;
   }
 
-  activate() {
+  activate(): void {
     this.isActive = true;
   }
 
-  toJSON() {
+  toJSON(): Record<string, any> {
     return {
       id: this.id,
       fullName: this.fullName,
@@ -78,5 +78,4 @@ export class User {
       role: this.role,
     };
   }
-
 }

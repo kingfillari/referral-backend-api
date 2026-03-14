@@ -5,6 +5,10 @@ import { Hospital } from '../hospitals/entities/hospital.entity';
 import { Referral } from '../referrals/entities/referral.entity';
 import { Appointment } from '../appointments/entities/appointment.entity';
 import { Comment } from '../comments/entities/comment.entity';
+import { config } from 'dotenv';
+
+// Load .env variables
+config();
 
 export const databaseConfig: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -14,7 +18,7 @@ export const databaseConfig: TypeOrmModuleOptions = {
   password: process.env.DB_PASSWORD || 'postgres',
   database: process.env.DB_NAME || 'rms_db',
   entities: [User, Patient, Hospital, Referral, Appointment, Comment],
-  synchronize: true,
+  synchronize: true,  // auto-create tables in dev
   logging: true,
   cache: true,
   migrationsTableName: 'migrations',
