@@ -1,17 +1,17 @@
 {
   "name": "referral_backend_api",
   "version": "1.0.0",
-  "description": "Backend API for the Referral Management System (RMS) built with NestJS, TypeScript, and PostgreSQL.",
-  "main": "src/main.ts",
+  "description": "Backend API for the Referral Management System (RMS) built with NestJS, TypeScript, PostgreSQL, and integrated with Flutter frontend.",
+  "main": "dist/main.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "start": "ts-node src/main.ts",
-    "dev": "ts-node-dev src/main.ts",
-    "build": "tsc",
-    "start:prod": "node dist/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dist/main.js",
+    "start:dev": "ts-node-dev --respawn --transpile-only src/main.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "lint": "eslint '{src,test}/**/*.ts' --fix",
+    "test": "echo \"No tests yet\" && exit 0"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
     "rms",
     "referral-management"
   ],
-  "author": "Kingfillari Forever",
+  "author": "KingFillari Forever",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kingfillari/referral-backend-api/issues"
@@ -41,7 +41,13 @@
     "pg": "^8.20.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.2",
-    "typeorm": "^0.3.28"
+    "typeorm": "^0.3.28",
+    "class-validator": "^1.9.0",
+    "class-transformer": "^0.6.0",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.3.1",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
@@ -49,6 +55,10 @@
     "@types/passport-jwt": "^4.0.1",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "eslint": "^8.51.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "prettier": "^3.0.0"
   }
 }
